@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-06-19T11:20:01 BRT" name="Surefire suite" finished-at="2023-06-19T11:20:53 BRT" duration-ms="52050">
+    <groups>
+    </groups>
+    <test started-at="2023-06-19T11:20:01 BRT" name="Surefire test" finished-at="2023-06-19T11:20:53 BRT" duration-ms="52050">
+      <class name="tests.T001KnifeTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.T001KnifeTest@f8c1ddd]" started-at="2023-06-19T11:20:01 BRT" name="setUp" finished-at="2023-06-19T11:20:07 BRT" duration-ms="5421" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="acessarSteam()[pri:0, instance:tests.T001KnifeTest@f8c1ddd]" started-at="2023-06-19T11:20:07 BRT" name="acessarSteam" finished-at="2023-06-19T11:20:53 BRT" duration-ms="46340" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- acessarSteam -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.T001KnifeTest@f8c1ddd]" started-at="2023-06-19T11:20:53 BRT" name="tearDown" finished-at="2023-06-19T11:20:53 BRT" duration-ms="268" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- tests.T001KnifeTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
