@@ -23,7 +23,7 @@ public class T001KnifeTest {
     }
 
     @Test
-    public void acessarSteam(){
+    public void validarPrecosDasSkinsDeFaca(){
         boolean comprarSkin = new HomePagePO(driver)
         .acessarMenu()
         .acessarMercadoDaComunidade()
