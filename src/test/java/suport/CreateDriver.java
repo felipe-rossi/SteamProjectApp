@@ -13,6 +13,7 @@ public class CreateDriver {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName","Android");
+        capabilities.setCapability("appium:deviceName", "emulator-5554");
         capabilities.setCapability("automationName","uiautomator2");
         capabilities.setCapability("platformVersion","12.0");
         capabilities.setCapability("appPackage","com.valvesoftware.android.steam.community");
