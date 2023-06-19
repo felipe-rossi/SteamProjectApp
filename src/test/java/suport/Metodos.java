@@ -32,7 +32,7 @@ public class Metodos extends BasePage {
 
     }
 
-    public void scrollPorArea(WebElement element, int quantidadeScroll){
+    public void scrollPorAreaHorizontal(WebElement element, int quantidadeScroll){
         int xInicial = (int) (element.getSize().getWidth() * 0.5);
         int xFinal = (int) (element.getSize().getHeight() * 0.2);
         ; // Defina a porcentagem de deslize desejada
@@ -46,6 +46,27 @@ public class Metodos extends BasePage {
                     .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
                     .moveTo(PointOption.point(0, xFinal))
                     .release().perform();
+        }
+    }
+
+    public void scrollPorAreaVertical(WebElement element, int quantidadeScroll){
+
+        //Obtenha as coordenadas relativas do elemento
+        int startX = element.getLocation().getX() + (element.getSize().getWidth() / 2);
+        int startY = element.getLocation().getY() + (element.getSize().getHeight() / 2);
+        int endX = startX;
+        int endY = startY - (int) (element.getSize().getHeight() * 0.8); // Defina a porcentagem de deslize desejada
+
+        // Execute a ação de scroll
+        for (int i = 1; i <= quantidadeScroll;i++) {
+            System.out.println("Dando Scroll por área Vertical");
+            TouchAction action = new TouchAction(driver);
+            action.press(ElementOption.element(element, startX, startY))
+                    .waitAction()
+                    .moveTo(ElementOption.element(element, endX, endY))
+                    .release()
+                    .perform();
+
         }
     }
 

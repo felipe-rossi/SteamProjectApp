@@ -3,6 +3,7 @@ package tests;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -23,13 +24,15 @@ public class T001KnifeTest {
 
     @Test
     public void acessarSteam(){
-        new HomePagePO(driver)
+        boolean comprarSkin = new HomePagePO(driver)
         .acessarMenu()
         .acessarMercadoDaComunidade()
         .escolherJogoCSGO()
         .pesquisarPorFacas()
         .ordernarPeloMenorPreco()
         .validarValorDaSkin();
+
+        Assert.assertFalse(comprarSkin);
     }
 
 
