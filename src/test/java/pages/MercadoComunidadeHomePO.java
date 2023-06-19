@@ -1,6 +1,9 @@
 package pages;
 
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.PerformsTouchActions;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -33,7 +36,7 @@ public class MercadoComunidadeHomePO extends BasePage {
 
     public ResultadoMercadoPO pesquisarPorFacas(){
        driver.findElement(By.xpath("//*[@resource-id='market_search_advanced_show']")).click();
-       WebElement checkFacas = driver.findElement(MobileBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().className(\"android.widget.CheckBox\").resourceId(\"tag_730_Type_CSGO_Type_Knife\"))")); //tag_730_Type_CSGO_Type_Rifle  tag_730_Type_CSGO_Type_Knife
+       WebElement checkFacas = driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().className(\"android.widget.CheckBox\").resourceId(\"tag_730_Type_CSGO_Type_Knife\"))")); //tag_730_Type_CSGO_Type_Rifle  tag_730_Type_CSGO_Type_Knife
        wait.until(ExpectedConditions.visibilityOf(checkFacas)).click();
        metodos.scroll(1);
        WebElement btnBuscar = driver.findElement(By.xpath("//*[@text='Buscar']"));
