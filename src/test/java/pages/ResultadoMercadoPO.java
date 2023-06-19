@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import suport.BasePage;
+import suport.EnviarEmail;
 import suport.Metodos;
 
 import javax.sound.midi.Soundbank;
@@ -72,8 +73,19 @@ public class ResultadoMercadoPO extends BasePage {
 
             driver.findElement(MobileBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().description(\"Comprar agora\"))")).click();
             driver.findElement(By.xpath("//*[@resource-id = 'market_buynow_dialog_accept_ssa']")).click();
-            WebElement areaSrollVertical =  driver.findElement(By.xpath("//*[@resource-id = 'market_buynow_dialog_paymentinfo_frame']"));
-            metodos.scrollPorAreaVertical(areaSrollVertical, 2);
+            try{
+                driver.findElement(MobileBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).setAsHorizontalList().scrollIntoView(new UiSelector().resourceId(\"market_buynow_dialog_purchase\"))"));
+                driver.findElement(By.xpath("//*[@resource-id='market_buynow_dialog_purchase']")).click();
+                metodos.tapPorCordenadas(959, 1133);
+
+            }catch (Exception e){
+                System.out.println("Erro ao Clicar");
+            }
+//            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Ver inventário']")));
+            driver.findElement(By.xpath("//*[@text='Ver inventário']")).click();
+            System.out.println("Compra realizada com sucesso");
+
+            EnviarEmail.enviarEmail(nomeItem,valorItem);
             comprarSkin = true;
 
         }else{
