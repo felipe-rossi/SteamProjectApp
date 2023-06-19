@@ -26,6 +26,7 @@ public class EnviarEmail {
            // email.addTo(emailFlauzino);
             //email.addTo(emailCaio);
             email.send();
+            System.out.println("E-mail enviado com sucesso");
 
         }catch (Exception e){
             System.out.println(e.getMessage());

@@ -68,8 +68,9 @@ public class ResultadoMercadoPO extends BasePage {
         if (valorItemTratado <= 15000){
             System.out.println("Valor da Skin é MENOR OU IGUAL que 30 dolares (150 reais)");
 
-            //EnviarEmail.enviarEmail(nomeItem,valorItem,linkItem);
             linkSkin.click();
+
+            System.out.println("Realizando compra da Skin...");
 
             driver.findElement(MobileBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().description(\"Comprar agora\"))")).click();
             driver.findElement(By.xpath("//*[@resource-id = 'market_buynow_dialog_accept_ssa']")).click();
@@ -84,7 +85,7 @@ public class ResultadoMercadoPO extends BasePage {
 //            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Ver inventário']")));
             driver.findElement(By.xpath("//*[@text='Ver inventário']")).click();
             System.out.println("Compra realizada com sucesso");
-
+            System.out.println("Enviando e-mail...");
             EnviarEmail.enviarEmail(nomeItem,valorItem);
             comprarSkin = true;
 
