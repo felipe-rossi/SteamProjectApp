@@ -27,7 +27,9 @@ public class T001KnifeTest {
         .acessarMenu()
         .acessarMercadoDaComunidade()
         .escolherJogoCSGO()
-        .pesquisarPorFacas();
+        .pesquisarPorFacas()
+        .ordernarPeloMenorPreco()
+        .validarValorDaSkin();
     }
 
 

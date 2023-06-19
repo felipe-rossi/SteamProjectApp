@@ -31,12 +31,14 @@ public class MercadoComunidadeHomePO extends BasePage {
         return this;
     }
 
-    public OpcoesAvancadasPO pesquisarPorFacas(){
+    public ResultadoMercadoPO pesquisarPorFacas(){
        driver.findElement(By.xpath("//*[@resource-id='market_search_advanced_show']")).click();
-       WebElement areaScroll = driver.findElement(By.xpath("//*[@resource-id='market_advancedsearch_filters']"));
        driver.findElement(MobileBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().resourceId(\"market_advancedsearch_filters\").className(\"android.view.View\").className(\"android.widget.CheckBox\").resourceId(\"tag_730_Type_CSGO_Type_Knife\"))")).click();
        metodos.scroll(1);
-       driver.findElement(By.xpath("//*[@text='Buscar']")).click();
-        return new OpcoesAvancadasPO(driver);
+       WebElement btnBuscar = driver.findElement(By.xpath("//*[@text='Buscar']"));
+       btnBuscar.click();
+
+        wait.until(ExpectedConditions.stalenessOf(btnBuscar));
+        return new ResultadoMercadoPO(driver);
     }
 }
