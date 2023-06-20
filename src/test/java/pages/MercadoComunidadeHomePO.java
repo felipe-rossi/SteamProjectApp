@@ -39,7 +39,8 @@ public class MercadoComunidadeHomePO extends BasePage {
        driver.findElement(By.xpath("//*[@resource-id='market_search_advanced_show']")).click();
 
        WebElement checkFacas = driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().resourceId(\"tag_730_Type_CSGO_Type_Knife\"))")); //tag_730_Type_CSGO_Type_Rifle  tag_730_Type_CSGO_Type_Knife
-       wait.until(ExpectedConditions.visibilityOf(checkFacas)).click();
+       WebElement botaoFacas = driver.findElement(By.xpath("//*[@resource-id='tag_730_Type_CSGO_Type_Knife']"));
+       wait.until(ExpectedConditions.visibilityOf(botaoFacas)).click();
 
        metodos.scroll(1);
 
