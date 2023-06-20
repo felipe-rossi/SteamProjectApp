@@ -8,6 +8,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.HomePagePO;
+import pages.MercadoComunidadeHomePO;
 import suport.CreateDriver;
 
 import java.net.MalformedURLException;
@@ -24,9 +25,10 @@ public class T001KnifeTest {
 
     @Test
     public void validarPrecosDasSkinsDeFaca(){
-        boolean comprarSkin = new HomePagePO(driver)
-        .acessarMenu()
-        .acessarMercadoDaComunidade()
+//        boolean comprarSki = new HomePagePO(driver)
+//        .acessarMenu()
+//        .acessarMercadoDaComunidade()
+        boolean comprarSkin = new MercadoComunidadeHomePO(driver)
         .escolherJogoCSGO()
         .pesquisarPorFacas()
         .ordernarPeloMenorPreco()

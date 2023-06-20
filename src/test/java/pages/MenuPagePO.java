@@ -20,12 +20,14 @@ public class MenuPagePO extends BasePage {
     public MercadoComunidadeHomePO acessarMercadoDaComunidade(){
 
         WebElement menuComunidade = driver.findElement(By.xpath("//*[@text = 'Comunidade']"));
-        wait.until(ExpectedConditions.visibilityOf(menuComunidade)).click();
+        //wait.until(ExpectedConditions.visibilityOf(menuComunidade)).click();
+        menuComunidade.click();
 
         metodos.scroll(1);
 
         WebElement submenuMercado = driver.findElement(By.xpath("//*[@text = 'Mercado']"));
-        wait.until(ExpectedConditions.visibilityOf(submenuMercado)).click();
+        //wait.until(ExpectedConditions.visibilityOf(submenuMercado)).click();
+        submenuMercado.click();
 
         return new MercadoComunidadeHomePO(driver);
     }

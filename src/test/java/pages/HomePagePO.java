@@ -22,7 +22,7 @@ public class HomePagePO extends BasePage {
     public MenuPagePO acessarMenu(){
 
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text = 'MENU']")));
-        metodos.tapPorCordenadas(971,1712);
+        metodos.tapPorCordenadas(970, 1706);
 
         return new MenuPagePO(driver);
     }

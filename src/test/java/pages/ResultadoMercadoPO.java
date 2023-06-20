@@ -32,13 +32,6 @@ public class ResultadoMercadoPO extends BasePage {
         ordernarpreco.click();
         metodos.scroll(1);
 
-//        try {
-//            Thread.sleep(3000);
-//        }catch (Exception e){
-//            System.out.println("Erro ao esperar 3s");
-//        }
-
-
         return this;
     }
 
@@ -77,7 +70,7 @@ public class ResultadoMercadoPO extends BasePage {
             try{
                 driver.findElement(MobileBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).setAsHorizontalList().scrollIntoView(new UiSelector().resourceId(\"market_buynow_dialog_purchase\"))"));
                 driver.findElement(By.xpath("//*[@resource-id='market_buynow_dialog_purchase']")).click();
-                metodos.tapPorCordenadas(959, 1133);
+                //metodos.tapPorCordenadas(959, 1133);
 
             }catch (Exception e){
                 System.out.println("Erro ao Clicar");
