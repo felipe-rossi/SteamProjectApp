@@ -16,7 +16,7 @@ public class Screenshot extends BasePage{
     public void tirarPrint(){
         try{
             File arquivo = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(arquivo, new File("Screenshots\\erro.png"));
+            FileUtils.copyFile(arquivo, new File("Screenshots\\ultimo_erro.png"));
         }catch (Exception e){
             System.out.println("Erro ao tirar print da tela: " + e.getMessage());
         }
