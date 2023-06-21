@@ -42,8 +42,14 @@ public class MercadoComunidadeHomePO extends BasePage {
 
         metodos.scrollFiltroFaca(2);
 
-        WebElement botaoFacas = driver.findElement(By.xpath("//*[@resource-id='tag_730_Type_CSGO_Type_Knife']"));
-       wait.until(ExpectedConditions.visibilityOf(botaoFacas)).click();
+        try{
+            WebElement botaoFacas = driver.findElement(By.xpath("//*[@resource-id='tag_730_Type_CSGO_Type_Knife']"));
+            wait.until(ExpectedConditions.visibilityOf(botaoFacas)).click();
+        }catch (Exception e){
+            metodos.scrollFiltroFaca(1);
+            WebElement botaoFacas = driver.findElement(By.xpath("//*[@resource-id='tag_730_Type_CSGO_Type_Knife']"));
+            wait.until(ExpectedConditions.visibilityOf(botaoFacas)).click();
+        }
 
        metodos.scroll(1);
 
