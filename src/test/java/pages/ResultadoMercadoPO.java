@@ -27,10 +27,15 @@ public class ResultadoMercadoPO extends BasePage {
 
     Metodos metodos = new Metodos(driver);
     public ResultadoMercadoPO ordernarPeloMenorPreco(){
+        WebElement primeiraSkinExibida = driver.findElement(By.xpath("//*[@resource-id = 'result_0_name']"));
+        String nomePrimeiraSkinExibida = primeiraSkinExibida.getText();
 
         WebElement ordernarpreco = driver.findElement(By.xpath("//*[@text='PREÇO']"));
         ordernarpreco.click();
+
         metodos.scroll(1);
+
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.invisibilityOfElementWithText(By.xpath("//*[@resource-id = 'result_0_name']"),nomePrimeiraSkinExibida)));
 
         return this;
     }
@@ -38,12 +43,6 @@ public class ResultadoMercadoPO extends BasePage {
 
     public boolean validarValorDaSkin(){
         comprarSkin = false;
-
-        try{
-            Thread.sleep(5000);
-        }catch (Exception e){
-            System.out.println("Erro ao esperar 5s");
-        }
 
         WebElement nomeSkinMaisBarata = driver.findElement(By.xpath("//*[@resource-id = 'result_0_name']"));
         nomeItem = nomeSkinMaisBarata.getText();

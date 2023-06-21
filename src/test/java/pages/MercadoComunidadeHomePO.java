@@ -46,6 +46,7 @@ public class MercadoComunidadeHomePO extends BasePage {
             WebElement botaoFacas = driver.findElement(By.xpath("//*[@resource-id='tag_730_Type_CSGO_Type_Knife']"));
             wait.until(ExpectedConditions.visibilityOf(botaoFacas)).click();
         }catch (Exception e){
+            System.out.println("Cai no Exception!!!");
             metodos.scrollFiltroFaca(1);
             WebElement botaoFacas = driver.findElement(By.xpath("//*[@resource-id='tag_730_Type_CSGO_Type_Knife']"));
             wait.until(ExpectedConditions.visibilityOf(botaoFacas)).click();
@@ -57,6 +58,8 @@ public class MercadoComunidadeHomePO extends BasePage {
        btnBuscar.click();
 
         wait.until(ExpectedConditions.stalenessOf(btnBuscar));
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//android.view.View[@content-desc='Faca']"))));
+
         return new ResultadoMercadoPO(driver);
     }
 }
