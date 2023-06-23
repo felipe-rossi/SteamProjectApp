@@ -35,7 +35,7 @@ public class Metodos extends BasePage {
     public void scrollFiltroFaca(int quantidadeScroll){
 
         for (int i = 1; i <= quantidadeScroll;i++){
-            driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).setAsVerticalList().scrollForward(10)"));
+            driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).setAsVerticalList().scrollForward(5)"));
         }
     }
 
