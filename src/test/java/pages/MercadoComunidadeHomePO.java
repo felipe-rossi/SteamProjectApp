@@ -20,7 +20,6 @@ public class MercadoComunidadeHomePO extends BasePage {
     public MercadoComunidadeHomePO(AndroidDriver driver) {
         super(driver);
     }
-
     Metodos metodos = new Metodos(driver);
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
@@ -28,8 +27,9 @@ public class MercadoComunidadeHomePO extends BasePage {
 
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc=\"Anunciar um item\"]")));
         driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]")).click();
-        driver.findElement(By.xpath("//*[contains(@text, 'Counter-Strike')]")).click();
-
+        WebElement csgo = driver.findElement(By.xpath("//*[contains(@text, 'Counter-Strike')]"));
+        csgo.click();
+        wait.until(ExpectedConditions.stalenessOf(csgo));
         return this;
     }
 
@@ -51,10 +51,7 @@ public class MercadoComunidadeHomePO extends BasePage {
             WebElement botaoFacas = driver.findElement(By.xpath("//*[@resource-id='tag_730_Type_CSGO_Type_Knife']"));
             wait.until(ExpectedConditions.visibilityOf(botaoFacas)).click();
         }
-
-        metodos.scroll(1);
-
-
+       metodos.scroll(1);
        WebElement btnBuscar = driver.findElement(By.xpath("//*[@text='Buscar']"));
        btnBuscar.click();
 
