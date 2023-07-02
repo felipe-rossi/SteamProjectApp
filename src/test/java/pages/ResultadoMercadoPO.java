@@ -25,15 +25,18 @@ public class ResultadoMercadoPO extends BasePage {
     public static String linkItem;
     public static int valorItemTratado;
 
+    List<WebElement> listaPrecos;
+    WebElement linkSkin;
+
+    WebElement nomeSkinMaisBarata;
+
     Metodos metodos = new Metodos(driver);
     public ResultadoMercadoPO ordernarPeloMenorPreco(){
         WebElement primeiraSkinExibida = driver.findElement(By.xpath("//*[@resource-id = 'result_0_name']"));
         String nomePrimeiraSkinExibida = primeiraSkinExibida.getText();
 
-        WebElement ordernarpreco = driver.findElement(By.xpath("//*[@text='PREÇO']"));
+        WebElement ordernarpreco = driver.findElement(By.xpath("//*[contains(@text,'PREÇO')]"));
         ordernarpreco.click();
-
-        metodos.scroll(1);
 
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.invisibilityOfElementWithText(By.xpath("//*[@resource-id = 'result_0_name']"),nomePrimeiraSkinExibida)));
 
@@ -44,18 +47,35 @@ public class ResultadoMercadoPO extends BasePage {
     public boolean validarValorDaSkin(){
         comprarSkin = false;
 
-        WebElement nomeSkinMaisBarata = driver.findElement(By.xpath("//*[@resource-id = 'result_0_name']"));
+        nomeSkinMaisBarata = driver.findElement(By.xpath("//*[@resource-id = 'result_0_name']"));
         nomeItem = nomeSkinMaisBarata.getText();
-        System.out.println("Nome da Skin: " + nomeItem);
 
-        List<WebElement> listaPrecos = driver.findElements(By.xpath("//*[contains(@text,'A partir de')]"));
+        listaPrecos = driver.findElements(By.xpath("//*[contains(@text,'A partir de')]"));
         valorItem = listaPrecos.get(0).getText().substring(11);
-
-        System.out.println("Skin mais barata custa: " + valorItem.replace("\n", ""));
-
-        WebElement linkSkin = driver.findElement(By.xpath("//*[@resource-id='resultlink_0']"));
-
         valorItemTratado = tratarValorSkin(valorItem);
+
+        while(valorItemTratado > 15000){
+            ordernarPeloMenorPreco();
+
+            try{
+                Thread.sleep(5000);
+            }catch (Exception e){
+                System.out.println("Erro ao esperar 3s");
+            }
+
+            ordernarPeloMenorPreco();
+
+
+            nomeSkinMaisBarata = driver.findElement(By.xpath("//*[@resource-id = 'result_0_name']"));
+            nomeItem = nomeSkinMaisBarata.getText();
+
+            listaPrecos = driver.findElements(By.xpath("//*[contains(@text,'A partir de')]"));
+            valorItem = listaPrecos.get(0).getText().substring(11);
+            valorItemTratado = tratarValorSkin(valorItem);
+            System.out.println("Valor do item tratado = " + valorItemTratado);
+        }
+
+        linkSkin = driver.findElement(By.xpath("//*[@resource-id='resultlink_0']"));
 
         if (valorItemTratado <= 15000){
             System.out.println("Valor da Skin é MENOR OU IGUAL que 30 dolares (150 reais)");
