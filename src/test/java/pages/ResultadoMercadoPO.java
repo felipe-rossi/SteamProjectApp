@@ -58,9 +58,9 @@ public class ResultadoMercadoPO extends BasePage {
             ordernarPeloMenorPreco();
 
             try{
-                Thread.sleep(2000);
+                Thread.sleep(5000);
             }catch (Exception e){
-                System.out.println("Erro ao esperar 2s");
+                System.out.println("Erro ao esperar 5s");
             }
 
             ordernarPeloMenorPreco();
