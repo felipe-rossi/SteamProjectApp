@@ -27,9 +27,9 @@ public class MercadoComunidadeHomePO extends BasePage {
 
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@content-desc=\"Anunciar um item\"]")));
         driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]")).click();
-        WebElement csgo = driver.findElement(By.xpath("//*[contains(@text, 'Counter-Strike')]"));
-        csgo.click();
-        wait.until(ExpectedConditions.stalenessOf(csgo));
+        WebElement cs2 = driver.findElement(By.xpath("//*[contains(@text, 'Counter-Strike 2')]"));
+        cs2.click();
+        wait.until(ExpectedConditions.stalenessOf(cs2));
         return this;
     }
 
