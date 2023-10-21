@@ -58,14 +58,11 @@ public class ResultadoMercadoPO extends BasePage {
 
             ordernarPeloMenorPreco();
 
-            WebElement NomesSkinSemFiltro = driver.findElement(By.id("result_0_name"));
-            String nomePrimeiraSkin = NomesSkinSemFiltro.getText();
-
-            WebElement ordernarpreco = driver.findElement(By.xpath("//*[@data-sorttype='price']"));
-            wait.until(ExpectedConditions.visibilityOf(ordernarpreco));
-            ordernarpreco.click();
-
-            wait.until(ExpectedConditions.refreshed(ExpectedConditions.invisibilityOfElementWithText(By.id("result_0_name"),nomePrimeiraSkin)));
+            try{
+                Thread.sleep(5000);
+            }catch (Exception e){
+                System.out.println("Erro ao esperar 5s");
+            }
 
             ordernarPeloMenorPreco();
 
